@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="gitMsg-container" style="overflow: auto; max-height: 80vh">
+        <div class="table-responsive">
+            <table class="table" id="gitMsg">
+                <thead>
+                    <tr>
+                        <th scope="col">user</th>
+                        <th scope="col">branch</th>
+                        <th scope="col">repository</th>
+                        <th scope="col">file</th>
+                        <th scope="col">diff</th>
+                        <th scope="col">message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for gitMsg in gitMsg %}
+                    <tr id={{ gitMsg.id }}>
+                        <!--<th scope="row">{{ gitMsg.gitMsg }}</th>-->
+                        <td> {{ gitMsg.user }} </td>
+                        <td> {{ gitMsg.branch }} </td>
+                        <td> {{ gitMsg.repository }} </td>
+                        <td> {{ gitMsg.file }} </td>
+                        <td> {{ gitMsg.diff }} </td>
+                        <td> {{ gitMsg.commitMsg }} </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
